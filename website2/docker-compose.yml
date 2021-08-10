@@ -17,7 +17,7 @@ services:
 
     networks:
       - webproxy
-      - default
+      - tiw
     
     environment: 
       VIRTUAL_HOST: www.jameslnwza.com
