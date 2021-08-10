@@ -44,6 +44,16 @@ services:
       - MYSQL_DATABASE=devops_db
       - MYSQL_USER=devops
       - MYSQL_PASSWORD=devops101
+  
+  pma:
+    container_name: lemp-phpmyadmin
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    environment: 
+      VIRTUAL_HOST: mydb.jameslnwza.com
+      LETSENCRYPT_HOST: mydb.jameslnwza.com
+    expose: "80"
+
 
 networks:
   default:
