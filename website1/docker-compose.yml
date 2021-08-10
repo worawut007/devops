@@ -16,9 +16,9 @@ services:
     image: nginx:stable-alpine
     restart: unless-stopped
 
-    # networks:
-    #   - webproxy
-    #   - tiw
+    networks:
+      - webproxy
+      - default
     
     environment: 
       VIRTUAL_HOST: www.jameslnwza.com
@@ -45,12 +45,12 @@ services:
       - MYSQL_USER=devops
       - MYSQL_PASSWORD=devops101
 
-# networks:
-#   default:
-#     external:
-#       name:
-#         web_network
-#   webproxy:
-#     external:
-#       name: 
-#         webproxy
+networks:
+  default:
+    external:
+      name:
+        web_network
+  webproxy:
+    external:
+      name: 
+        webproxy
