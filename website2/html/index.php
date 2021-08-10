@@ -8,4 +8,5 @@
 
    echo "Connected database server<br>";
    echo "Selected database";
+   echo "Hello web2"
 ?>
