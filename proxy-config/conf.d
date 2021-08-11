@@ -77,10 +77,6 @@ upstream www.jameslnwza.com-upstream {
 	# lemp_nginx
 	server 172.18.0.4:80;
 }
-upstream www.mydb.jameslnwza.com-upstream {
-	# lemp_nginx
-	server 172.18.0.5:80;
-}
 server {
 	server_name www.jameslnwza.com;
 	listen 80 ;
@@ -116,21 +112,4 @@ server {
 	location / {
 		proxy_pass http://www.jameslnwza.com-upstream;
 	}
-server {
-	server_name www.mydb.jameslnwza.com;
-	listen 80 ;
-	access_log /var/log/nginx/access.log vhost;
-	# Do not HTTPS redirect Let'sEncrypt ACME challenge
-	location ^~ /.well-known/acme-challenge/ {
-		auth_basic off;
-		auth_request off;
-		allow all;
-		root /usr/share/nginx/html;
-		try_files $uri =404;
-		break;
-	}
-	location / {
-		return 301 https://$host$request_uri;
-	}
-}
 }
