@@ -52,7 +52,8 @@ services:
     environment: 
       VIRTUAL_HOST: mydb.jameslnwza.com
       LETSENCRYPT_HOST: mydb.jameslnwza.com
-    expose: "80"
+    expose: 
+      - "80"
 
 
 networks:
