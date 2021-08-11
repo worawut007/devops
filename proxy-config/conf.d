@@ -112,4 +112,21 @@ server {
 	location / {
 		proxy_pass http://www.jameslnwza.com-upstream;
 	}
+server {
+	server_name www.mydb.jameslnwza.com;
+	listen 80 ;
+	access_log /var/log/nginx/access.log vhost;
+	# Do not HTTPS redirect Let'sEncrypt ACME challenge
+	location ^~ /.well-known/acme-challenge/ {
+		auth_basic off;
+		auth_request off;
+		allow all;
+		root /usr/share/nginx/html;
+		try_files $uri =404;
+		break;
+	}
+	location / {
+		return 301 https://$host$request_uri;
+	}
+}
 }
