@@ -113,7 +113,7 @@ server {
 		proxy_pass http://www.jameslnwza.com-upstream;
 	}
 server {
-	server_name www.mydb.jameslnwza.com;
+	server_name mydb.jameslnwza.com;
 	listen 80 ;
 	access_log /var/log/nginx/access.log vhost;
 	# Do not HTTPS redirect Let'sEncrypt ACME challenge
