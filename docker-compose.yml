@@ -15,16 +15,16 @@ services:
       - dhparam:/etc/nginx/dhparam
       - /var/run/docker.sock:/tmp/docker.sock:ro
 
-  # letsencrypt:
-  #   image: jrcs/letsencrypt-nginx-proxy-companion
-  #   container_name: nginx-proxy-lets
-  #   volumes_from: 
-  #     - nginx-proxy
-  #   volumes: 
-  #     - certs:/etc/nginx/certs:rw
-  #     - /var/run/docker.sock:/var/run/docker.sock:ro
-  #   depends_on: 
-  #     - nginx-proxy
+  letsencrypt:
+    image: jrcs/letsencrypt-nginx-proxy-companion
+    container_name: nginx-proxy-lets
+    volumes_from: 
+      - nginx-proxy
+    volumes: 
+      - certs:/etc/nginx/certs:rw
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    depends_on: 
+      - nginx-proxy
 
 volumes: 
   vhost:
